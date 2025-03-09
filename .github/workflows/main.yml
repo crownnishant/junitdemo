@@ -9,6 +9,15 @@ jobs:
   build:
     runs-on: windows-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: person_junit
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
